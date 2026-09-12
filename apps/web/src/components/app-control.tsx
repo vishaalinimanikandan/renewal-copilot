@@ -64,11 +64,13 @@ export function AppControl({
     {
       name: "research_account",
       description:
-        "Search the live web for recent news about the account's company (funding, layoffs, leadership changes, acquisitions) to ground a renewal-risk assessment. Returns inspectable sources with links; never invent a source that was not returned here.",
+        "Search the live web for real industry or market context that helps interpret this account's risk signals — e.g. sector-wide layoffs, budget cuts, or demand trends in the account's segment. CRITICAL: this account is a fictional sample; never search for its company name directly, since no real news about a made-up company exists. Search the real industry/segment condition instead. Returns inspectable sources with links; never invent a source that was not returned here.",
       parameters: z.object({
         query: z
           .string()
-          .describe("A natural-language search query, e.g. 'Northwind Freight layoffs 2026'."),
+          .describe(
+            "A natural-language search query about the account's real industry or segment, e.g. 'enterprise logistics sector layoffs 2026' — never the fictional account name itself.",
+          ),
       }),
       handler: async ({ query }) => {
         const response = await fetch("/api/search", {

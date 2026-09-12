@@ -35,6 +35,14 @@ export function makeAgent(threadId: string, options: AgentFactoryOptions = {}) {
     // agent with tools needs room to loop.
     maxSteps: 10,
 
+    // Optional low-credit guard: some providers refuse a request outright if
+    // the account can't afford the default max_tokens ceiling, even though
+    // actual usage would be far lower. Set MAX_OUTPUT_TOKENS in .env to cap
+    // what's requested; leave it unset once you have normal provider credit.
+    ...(process.env.MAX_OUTPUT_TOKENS
+      ? { maxOutputTokens: Number(process.env.MAX_OUTPUT_TOKENS) }
+      : {}),
+
     // The workplace, when one is configured. Empty array when it is not, so the
     // agent is never handed tools that would 401. Add your own MCP servers here
     // the same way — note HTTP transport takes `options` (with a wrapped
