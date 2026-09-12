@@ -96,4 +96,4 @@ Offline tests cover the approval boundary, idempotency, and error handling;
 they do not make live provider calls. Try the real create/read/decline flow
 with your own OpenRouter and Ambiguous credentials before recording a demo.
 
-[CopilotKit docs](https://docs.copilotkit.ai/) · [Sponsor authentication and first calls](../../using-sponsor-tools.md)
+[CopilotKit docs](https://docs.copilotkit.ai/)

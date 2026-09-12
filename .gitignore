@@ -13,4 +13,6 @@ apps/mobile/.expo/
 
 # Web approval and attempt metadata (not task storage)
 .data/
-HOW_IT_WORKS.md
+
+# Local-only notes/docs, not part of the submission
+local-notes/
